@@ -9,6 +9,11 @@
 import UIKit
 
 class HourlyForecastTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var humidity: UILabel!
+    @IBOutlet weak var temperature: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

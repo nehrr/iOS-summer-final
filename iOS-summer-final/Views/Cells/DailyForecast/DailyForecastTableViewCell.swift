@@ -9,6 +9,11 @@
 import UIKit
 
 class DailyForecastTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var day: UILabel!
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var maxTemp: UILabel!
+    @IBOutlet weak var minTemp: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
