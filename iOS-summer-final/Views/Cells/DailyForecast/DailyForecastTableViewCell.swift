@@ -27,9 +27,20 @@ class DailyForecastTableViewCell: UITableViewCell {
     }
     
     func configure(withData data: (String, String, String, String)) {
-        self.day.text = data.0
-        self.maxTemp.text = data.2
-        self.minTemp.text = data.3
+        let date = Date(timeIntervalSince1970: Double(data.0)!)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let day = dateFormatter.string(from: date)
+        
+        var maxTemp = Double(data.2)!
+        maxTemp.round()
+        var minTemp = Double(data.3)!
+        minTemp.round()
+
+        self.day.text = day
+        self.maxTemp.text = String(format: "%.0f", maxTemp) + "°C"
+        self.minTemp.text = String(format: "%.0f", minTemp) + "°C"
+        self.icon.image = UIImage(named: data.1)
     }
     
 }

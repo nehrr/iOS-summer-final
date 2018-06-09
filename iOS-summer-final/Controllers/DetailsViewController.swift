@@ -97,7 +97,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource {
             if let temperature = aCity?.forecast?.temperature,
                 let icon = aCity?.forecast?.icon,
                 let summary = aCity?.forecast?.summary {
-                cell.configure(temp: temperature, current: summary)
+                cell.configure(temp: temperature, current: summary, icon: icon)
             }
             return cell
             
@@ -136,6 +136,14 @@ class DetailsViewController: UIViewController, UITableViewDataSource {
             return cell
         default:
             return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if true {
+            cell.contentView.backgroundColor = UIColor.cyan
+        } else {
+            cell.backgroundColor = UIColor.blue
         }
     }
     

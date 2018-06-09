@@ -27,9 +27,20 @@ class HourlyForecastTableViewCell: UITableViewCell {
     }
     
     func configure(withData data: (String, String, String, String)) {
-        self.time.text = data.0
-        self.humidity.text = data.2
-        self.temperature.text = data.3
+        let date = Date(timeIntervalSince1970: Double(data.0)!)
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH"
+        let time = timeFormatter.string(from: date)
+        
+        var humidity = Double(data.2)! * 100
+        humidity.round()
+        var temp = Double(data.3)!
+        temp.round()
+        
+        self.time.text = time
+        self.humidity.text = String(format: "%.0f", humidity) + "%"
+        self.temperature.text = String(format: "%.0f", temp) + "°C"
+        self.icon.image = UIImage(named: data.1)
     }
     
 }

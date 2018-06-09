@@ -16,7 +16,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="HeaderTableViewCell" customModule="iOS_summer_final" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="332" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="332" height="139.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -40,7 +40,6 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.2622675948" blue="0.27200280110000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="zWX-EY-cN5" secondAttribute="trailing" constant="16" id="5Ul-BO-xST"/>
                     <constraint firstItem="zWX-EY-cN5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="63g-fi-I9I"/>
@@ -48,6 +47,8 @@
                     <constraint firstItem="KAJ-WU-mn8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HzF-pv-aDy"/>
                     <constraint firstItem="KAJ-WU-mn8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="MjV-GI-afS"/>
                     <constraint firstAttribute="trailingMargin" secondItem="L4w-fo-yx7" secondAttribute="trailing" constant="16" id="Wqk-Pf-1Jf"/>
+                    <constraint firstItem="KAJ-WU-mn8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="um7-4c-J1r"/>
+                    <constraint firstAttribute="bottom" secondItem="KAJ-WU-mn8" secondAttribute="bottom" constant="16" id="uxv-1n-8d5"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
