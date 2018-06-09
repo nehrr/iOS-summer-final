@@ -14,10 +14,6 @@ class Forecast {
     var temperature: String?
     var summary: String?
     var extra: [(String, String, String, String)] = []
-    //    var windSpeed: String?
-    //    var pressure: String?
-    //    var humidity: String?
-    //    var UVIndex: String?
     var hourlySummary: String?
     var dailySummary: String?
     var hourlyForecast: [(time: String, icon: String, humidity: String, temperature: String)] = []
@@ -28,10 +24,6 @@ class Forecast {
         self.icon = json["currently"]["icon"].stringValue
         self.temperature = json["currently"]["temperature"].stringValue
         self.summary = json["currently"]["summary"].stringValue
-        //        self.windSpeed = json["currently"]["windSpeed"].stringValue
-        //        self.pressure = json["currently"]["pressure"].stringValue
-        //        self.humidity = json["currently"]["humidity"].stringValue
-        //        self.UVIndex = json["currently"]["uvIndex"].stringValue
         
         self.extra.append(("Humidity", json["currently"]["humidity"].stringValue, "Wind Speed", json["currently"]["windSpeed"].stringValue))
         self.extra.append(("Pressure", json["currently"]["pressure"].stringValue, "UV Index", json["currently"]["uvIndex"].stringValue))
@@ -54,9 +46,6 @@ class Forecast {
                                        minTemp: dailyData["temperatureMin"].stringValue))
             
         }
-        
-        print(self.dailyForecast)
-        print(self.hourlyForecast)
     }
     
 }
