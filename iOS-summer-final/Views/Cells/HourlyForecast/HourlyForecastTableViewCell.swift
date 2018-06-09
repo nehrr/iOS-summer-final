@@ -14,17 +14,6 @@ class HourlyForecastTableViewCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var humidity: UILabel!
     @IBOutlet weak var temperature: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func configure(withData data: (String, String, String, String)) {
         let date = Date(timeIntervalSince1970: Double(data.0)!)

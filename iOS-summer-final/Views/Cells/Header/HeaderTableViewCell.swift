@@ -13,17 +13,6 @@ class HeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var currentForecast: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     func configure(temp: String, current: String, icon: String) {
         var temp = Double(temp)!

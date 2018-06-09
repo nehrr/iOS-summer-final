@@ -9,16 +9,17 @@
 import UIKit
 
 class ExtraInformationTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var type1: UILabel!
+    @IBOutlet weak var data1: UILabel!
+    @IBOutlet weak var type2: UILabel!
+    @IBOutlet weak var data2: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure(withData data: (String, String, String, String)) {
+        self.type1.text = data.0
+        self.data1.text = data.1
+        self.type2.text = data.2
+        self.data2.text = data.3
     }
     
 }

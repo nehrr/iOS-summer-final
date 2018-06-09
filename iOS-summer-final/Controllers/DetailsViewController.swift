@@ -10,14 +10,19 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class DetailsViewController: UIViewController, UITableViewDataSource {
+class DetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
     var aCity: City?
+    var now: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let date = Date()
+        let calendar = Calendar.current
+        self.now = calendar.component(.hour, from: date)
         
         tableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "Header")
         tableView.register(UINib(nibName: "ForecastTextTableViewCell", bundle: nil), forCellReuseIdentifier: "HourlyForecastText")
@@ -32,14 +37,6 @@ class DetailsViewController: UIViewController, UITableViewDataSource {
         if let cityName = aCity?.name {
             navigationItem.title = cityName
         }
-        
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getData() {
@@ -84,7 +81,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource {
         case 5:
             return 1
         case 6:
-            return 1
+            return 2
         default:
             return 1
         }
@@ -121,29 +118,48 @@ class DetailsViewController: UIViewController, UITableViewDataSource {
                 cell.configure(text: text)
             }
             return cell
+            
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DailyForecast", for: indexPath) as! DailyForecastTableViewCell
             if let dailyForecast = aCity?.forecast?.dailyForecast[indexPath.row] {
                 cell.configure(withData: dailyForecast)
             }
             return cell
+            
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExtraText", for: indexPath) as! ForecastTextTableViewCell
             cell.configure(text: "Extra Information")
             return cell
+            
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExtraInformation", for: indexPath) as! ExtraInformationTableViewCell
+            if let extraData = aCity?.forecast?.extra[indexPath.row] {
+                cell.configure(withData: extraData)
+            }
             return cell
+            
         default:
             return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if true {
-            cell.contentView.backgroundColor = UIColor.cyan
-        } else {
-            cell.backgroundColor = UIColor.blue
+        let labels = cell.contentView.subviews.compactMap { $0 as? UILabel }
+        
+        if let now = self.now {
+            if now <= 19 && now >= 8 {
+                cell.contentView.backgroundColor = UIColor.day
+                for label in labels
+                {
+                    label.textColor = UIColor.black
+                }
+            } else {
+                cell.backgroundColor = UIColor.night
+                for label in labels
+                {
+                    label.textColor = UIColor.white
+                }
+            }
         }
     }
     
