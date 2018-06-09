@@ -37,6 +37,10 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         if let cityName = aCity?.name {
             navigationItem.title = cityName
         }
+        
+        if aCity?.forecast == nil {
+            print("empty")
+        }
     }
     
     func getData() {
@@ -149,14 +153,14 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         if let now = self.now {
             if now <= 19 && now >= 8 {
                 cell.contentView.backgroundColor = UIColor.day
-                for label in labels
-                {
+                self.tableView.backgroundColor = UIColor.day
+                for label in labels {
                     label.textColor = UIColor.black
                 }
             } else {
                 cell.backgroundColor = UIColor.night
-                for label in labels
-                {
+                self.tableView.backgroundColor = UIColor.night
+                for label in labels {
                     label.textColor = UIColor.white
                 }
             }

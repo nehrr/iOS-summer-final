@@ -33,8 +33,8 @@ class Forecast {
         //        self.humidity = json["currently"]["humidity"].stringValue
         //        self.UVIndex = json["currently"]["uvIndex"].stringValue
         
-        self.extra.append(("Humidity", json["currently"]["humidity"].stringValue + " %", "Wind Speed", json["currently"]["windSpeed"].stringValue + " km/h"))
-        self.extra.append(("Pressure", json["currently"]["pressure"].stringValue + " hPa", "UV Index", json["currently"]["uvIndex"].stringValue))
+        self.extra.append(("Humidity", json["currently"]["humidity"].stringValue, "Wind Speed", json["currently"]["windSpeed"].stringValue))
+        self.extra.append(("Pressure", json["currently"]["pressure"].stringValue, "UV Index", json["currently"]["uvIndex"].stringValue))
         
         self.hourlySummary = json["hourly"]["summary"].stringValue
         self.dailySummary = json["daily"]["summary"].stringValue

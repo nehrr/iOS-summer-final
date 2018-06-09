@@ -17,9 +17,31 @@ class ExtraInformationTableViewCell: UITableViewCell {
 
     func configure(withData data: (String, String, String, String)) {
         self.type1.text = data.0
-        self.data1.text = data.1
+        
+        if data.0 == "Humidity" {
+            var humidity = Double(data.1)! * 100
+            humidity.round()
+            self.data1.text = String(format: "%.0f", humidity) + "%"
+        }
+        
+        if data.0 == "Pressure" {
+            var pressure = Double(data.1)!
+            pressure.round()
+            self.data1.text = String(format: "%.0f", pressure) + " hPa"
+        }
+        
         self.type2.text = data.2
-        self.data2.text = data.3
+        
+        if data.2 == "Wind Speed"{
+            var speed = Double(data.3)!
+            speed.round()
+            self.data2.text = String(format: "%.0f", speed) + " km/h"
+        }
+        
+        if data.2 == "UV Index" {
+            self.data2.text = data.3
+        }
+        
     }
     
 }
