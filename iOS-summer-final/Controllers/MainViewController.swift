@@ -12,6 +12,7 @@ import MapKit
 class MainViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    var myCity: City?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,21 @@ class MainViewController: UIViewController, MKMapViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let city = view.annotation {
+            myCity = City(name: city.title as! String, coordinates: city.coordinate)
+            performSegue(withIdentifier: "toDetails", sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetails" {
+            if let destinationVC = segue.destination as? DetailsViewController {
+                destinationVC.aCity = myCity
+            }
+        }
     }
     
     
