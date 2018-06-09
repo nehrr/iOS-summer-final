@@ -18,4 +18,8 @@ struct City {
         self.name = name
         self.coordinates = coordinates
     }
+    
+//    func update(forecast: Type) {
+//        self.forecast = forecast
+//    }
 }
