@@ -16,6 +16,16 @@
 		428DA79020CBAEDF00A5B0C8 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA78E20CBAEDF00A5B0C8 /* City.swift */; };
 		428DA79220CBB06E00A5B0C8 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA79120CBB06E00A5B0C8 /* DetailsViewController.swift */; };
 		428DA79420CBBB6900A5B0C8 /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA79320CBBB6900A5B0C8 /* Forecast.swift */; };
+		428DA79A20CBE26A00A5B0C8 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA79820CBE26A00A5B0C8 /* HeaderTableViewCell.swift */; };
+		428DA79B20CBE26A00A5B0C8 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 428DA79920CBE26A00A5B0C8 /* HeaderTableViewCell.xib */; };
+		428DA79E20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA79C20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.swift */; };
+		428DA79F20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 428DA79D20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.xib */; };
+		428DA7A220CBE2C500A5B0C8 /* DailyForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA7A020CBE2C500A5B0C8 /* DailyForecastTableViewCell.swift */; };
+		428DA7A320CBE2C500A5B0C8 /* DailyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 428DA7A120CBE2C500A5B0C8 /* DailyForecastTableViewCell.xib */; };
+		428DA7A620CBE2D100A5B0C8 /* HourlyForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA7A420CBE2D100A5B0C8 /* HourlyForecastTableViewCell.swift */; };
+		428DA7A720CBE2D100A5B0C8 /* HourlyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 428DA7A520CBE2D100A5B0C8 /* HourlyForecastTableViewCell.xib */; };
+		428DA7AF20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA7AD20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift */; };
+		428DA7B020CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 428DA7AE20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib */; };
 		4619E8F922975B3F4370E88A /* Pods_iOS_summer_final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCE25281DE159FFBAEE4F3F /* Pods_iOS_summer_final.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +42,16 @@
 		428DA78E20CBAEDF00A5B0C8 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		428DA79120CBB06E00A5B0C8 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		428DA79320CBBB6900A5B0C8 /* Forecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		428DA79820CBE26A00A5B0C8 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		428DA79920CBE26A00A5B0C8 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		428DA79C20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTextTableViewCell.swift; sourceTree = "<group>"; };
+		428DA79D20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastTextTableViewCell.xib; sourceTree = "<group>"; };
+		428DA7A020CBE2C500A5B0C8 /* DailyForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastTableViewCell.swift; sourceTree = "<group>"; };
+		428DA7A120CBE2C500A5B0C8 /* DailyForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyForecastTableViewCell.xib; sourceTree = "<group>"; };
+		428DA7A420CBE2D100A5B0C8 /* HourlyForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastTableViewCell.swift; sourceTree = "<group>"; };
+		428DA7A520CBE2D100A5B0C8 /* HourlyForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyForecastTableViewCell.xib; sourceTree = "<group>"; };
+		428DA7AD20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInformationTableViewCell.swift; sourceTree = "<group>"; };
+		428DA7AE20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtraInformationTableViewCell.xib; sourceTree = "<group>"; };
 		6C1008EB4EB6643548111D7A /* Pods-iOS-summer-final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-summer-final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-summer-final/Pods-iOS-summer-final.debug.xcconfig"; sourceTree = "<group>"; };
 		DE92BD917574C32B570D5CA4 /* Pods-iOS-summer-final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-summer-final.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-summer-final/Pods-iOS-summer-final.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +120,7 @@
 		428DA78720CBAC0100A5B0C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				428DA79520CBE1A100A5B0C8 /* Cells */,
 				428DA77D20CBAB7A00A5B0C8 /* LaunchScreen.storyboard */,
 				428DA77820CBAB7700A5B0C8 /* Main.storyboard */,
 			);
@@ -113,6 +134,63 @@
 				428DA79120CBB06E00A5B0C8 /* DetailsViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		428DA79520CBE1A100A5B0C8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				428DA7A820CBE2D700A5B0C8 /* Header */,
+				428DA7A920CBE2E200A5B0C8 /* ForecastText */,
+				428DA7AB20CBE2F600A5B0C8 /* HourlyForecast */,
+				428DA7AA20CBE2ED00A5B0C8 /* DailyForecast */,
+				428DA7AC20CBE31500A5B0C8 /* Extra */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		428DA7A820CBE2D700A5B0C8 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				428DA79820CBE26A00A5B0C8 /* HeaderTableViewCell.swift */,
+				428DA79920CBE26A00A5B0C8 /* HeaderTableViewCell.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		428DA7A920CBE2E200A5B0C8 /* ForecastText */ = {
+			isa = PBXGroup;
+			children = (
+				428DA79C20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.swift */,
+				428DA79D20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.xib */,
+			);
+			path = ForecastText;
+			sourceTree = "<group>";
+		};
+		428DA7AA20CBE2ED00A5B0C8 /* DailyForecast */ = {
+			isa = PBXGroup;
+			children = (
+				428DA7A020CBE2C500A5B0C8 /* DailyForecastTableViewCell.swift */,
+				428DA7A120CBE2C500A5B0C8 /* DailyForecastTableViewCell.xib */,
+			);
+			path = DailyForecast;
+			sourceTree = "<group>";
+		};
+		428DA7AB20CBE2F600A5B0C8 /* HourlyForecast */ = {
+			isa = PBXGroup;
+			children = (
+				428DA7A420CBE2D100A5B0C8 /* HourlyForecastTableViewCell.swift */,
+				428DA7A520CBE2D100A5B0C8 /* HourlyForecastTableViewCell.xib */,
+			);
+			path = HourlyForecast;
+			sourceTree = "<group>";
+		};
+		428DA7AC20CBE31500A5B0C8 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				428DA7AD20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift */,
+				428DA7AE20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib */,
+			);
+			path = Extra;
 			sourceTree = "<group>";
 		};
 		79271E79210C557EF4B40F82 /* Pods */ = {
@@ -184,8 +262,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				428DA79F20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.xib in Resources */,
 				428DA77F20CBAB7A00A5B0C8 /* LaunchScreen.storyboard in Resources */,
+				428DA7A720CBE2D100A5B0C8 /* HourlyForecastTableViewCell.xib in Resources */,
 				428DA77C20CBAB7A00A5B0C8 /* Assets.xcassets in Resources */,
+				428DA79B20CBE26A00A5B0C8 /* HeaderTableViewCell.xib in Resources */,
+				428DA7B020CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib in Resources */,
+				428DA7A320CBE2C500A5B0C8 /* DailyForecastTableViewCell.xib in Resources */,
 				428DA77A20CBAB7700A5B0C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,10 +322,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				428DA77720CBAB7700A5B0C8 /* MainViewController.swift in Sources */,
+				428DA79E20CBE2AC00A5B0C8 /* ForecastTextTableViewCell.swift in Sources */,
+				428DA7A220CBE2C500A5B0C8 /* DailyForecastTableViewCell.swift in Sources */,
+				428DA7A620CBE2D100A5B0C8 /* HourlyForecastTableViewCell.swift in Sources */,
 				428DA77520CBAB7700A5B0C8 /* AppDelegate.swift in Sources */,
 				428DA79020CBAEDF00A5B0C8 /* City.swift in Sources */,
+				428DA79A20CBE26A00A5B0C8 /* HeaderTableViewCell.swift in Sources */,
 				428DA78F20CBAEDF00A5B0C8 /* CitiesData.swift in Sources */,
 				428DA79420CBBB6900A5B0C8 /* Forecast.swift in Sources */,
+				428DA7AF20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift in Sources */,
 				428DA79220CBB06E00A5B0C8 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

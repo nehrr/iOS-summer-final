@@ -8,18 +8,19 @@
 
 import Foundation
 import CoreLocation
+import SwiftyJSON
 
 struct City {
     var name: String
     var coordinates: CLLocationCoordinate2D
-//    var forecast: Forecast?
+    var forecast: Forecast?
     
     init(name: String, coordinates: CLLocationCoordinate2D) {
         self.name = name
         self.coordinates = coordinates
     }
     
-//    func update(forecast: Type) {
-//        self.forecast = forecast
-//    }
+    mutating func update(forecast: Forecast) {
+        self.forecast = forecast
+    }
 }
