@@ -25,4 +25,9 @@ class HeaderTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(temp: String, current: String) {
+        self.tempLabel.text = temp
+        self.currentForecast.text = current
+    }
+    
 }

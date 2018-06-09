@@ -19,8 +19,5 @@ struct City {
         self.name = name
         self.coordinates = coordinates
     }
-    
-    mutating func update(forecast: Forecast) {
-        self.forecast = forecast
-    }
+
 }

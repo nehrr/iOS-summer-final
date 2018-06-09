@@ -26,4 +26,10 @@ class DailyForecastTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(withData data: (String, String, String, String)) {
+        self.day.text = data.0
+        self.maxTemp.text = data.2
+        self.minTemp.text = data.3
+    }
+    
 }

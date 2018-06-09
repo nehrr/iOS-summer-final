@@ -11,47 +11,48 @@ import SwiftyJSON
 
 class Forecast {
     var icon: String?
-    var temperature: Double?
+    var temperature: String?
     var summary: String?
-    var windSpeed: Double?
-    var pressure: Double?
-    var humidity: Double?
-    var UVIndex: Double?
+    var windSpeed: String?
+    var pressure: String?
+    var humidity: String?
+    var UVIndex: String?
     var hourlySummary: String?
     var dailySummary: String?
-    var hourlyForecast: [(time: Double, icon: String, humidity: Double, temperature: Double)]?
-    var dailyForecast: [(time: Double, icon: String, maxTemp: Double, minTemp: Double)]?
+    var hourlyForecast: [(time: String, icon: String, humidity: String, temperature: String)] = []
+    var dailyForecast: [(time: String, icon: String, maxTemp: String, minTemp: String)] = []
     
     init(json: JSON) {
-        for currently in json["currently"].arrayValue {
-            self.icon = currently["icon"].stringValue
-            self.temperature = currently["temperature"].doubleValue
-            self.summary = currently["summary"].stringValue
-            self.windSpeed = currently["windSpeed"].doubleValue
-            self.pressure = currently["pressure"].doubleValue
-            self.humidity = currently["humidity"].doubleValue
-            self.UVIndex = currently["uvIndex"].doubleValue
-        }
+        
+        self.icon = json["currently"]["icon"].stringValue
+        self.temperature = json["currently"]["temperature"].stringValue
+        self.summary = json["currently"]["summary"].stringValue
+        self.windSpeed = json["currently"]["windSpeed"].stringValue
+        self.pressure = json["currently"]["pressure"].stringValue
+        self.humidity = json["currently"]["humidity"].stringValue
+        self.UVIndex = json["currently"]["uvIndex"].stringValue
         
         self.hourlySummary = json["hourly"]["summary"].stringValue
         self.dailySummary = json["daily"]["summary"].stringValue
         
         for hourlyData in json["hourly"]["data"].arrayValue {
-            self.hourlyForecast?.append((time: hourlyData["time"].doubleValue,
+            self.hourlyForecast.append((time: hourlyData["time"].stringValue,
                                          icon: hourlyData["icon"].stringValue,
-                                         humidity: hourlyData["humidity"].doubleValue,
-                                         temperature: hourlyData["temperature"].doubleValue))
+                                         humidity: hourlyData["humidity"].stringValue,
+                                         temperature: hourlyData["temperature"].stringValue))
             
         }
         
         for dailyData in json["daily"]["data"].arrayValue {
-            self.dailyForecast?.append((time: dailyData["time"].doubleValue,
+            self.dailyForecast.append((time: dailyData["time"].stringValue,
                                         icon: dailyData["icon"].stringValue,
-                                        maxTemp: dailyData["temperatureMax"].doubleValue,
-                                        minTemp: dailyData["temperatureMin"].doubleValue))
+                                        maxTemp: dailyData["temperatureMax"].stringValue,
+                                        minTemp: dailyData["temperatureMin"].stringValue))
             
         }
-        print(self)
+        
+        print(self.dailyForecast)
+        print(self.hourlyForecast)
     }
     
 }

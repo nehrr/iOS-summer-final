@@ -26,4 +26,10 @@ class HourlyForecastTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func configure(withData data: (String, String, String, String)) {
+        self.time.text = data.0
+        self.humidity.text = data.2
+        self.temperature.text = data.3
+    }
+    
 }
