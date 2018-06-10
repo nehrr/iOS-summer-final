@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		426C05B520CD306F00E0BFB6 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426C05B320CD306F00E0BFB6 /* CityTableViewCell.swift */; };
+		426C05B620CD306F00E0BFB6 /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 426C05B420CD306F00E0BFB6 /* CityTableViewCell.xib */; };
 		428DA77520CBAB7700A5B0C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA77420CBAB7700A5B0C8 /* AppDelegate.swift */; };
 		428DA77720CBAB7700A5B0C8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA77620CBAB7700A5B0C8 /* MainViewController.swift */; };
 		428DA77A20CBAB7700A5B0C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428DA77820CBAB7700A5B0C8 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		0BCE25281DE159FFBAEE4F3F /* Pods_iOS_summer_final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_summer_final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		426C05B320CD306F00E0BFB6 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		426C05B420CD306F00E0BFB6 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		428DA77120CBAB7700A5B0C8 /* iOS-summer-final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-summer-final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		428DA77420CBAB7700A5B0C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		428DA77620CBAB7700A5B0C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,15 @@
 				0BCE25281DE159FFBAEE4F3F /* Pods_iOS_summer_final.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		426C05B220CD305800E0BFB6 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				426C05B320CD306F00E0BFB6 /* CityTableViewCell.swift */,
+				426C05B420CD306F00E0BFB6 /* CityTableViewCell.xib */,
+			);
+			path = City;
 			sourceTree = "<group>";
 		};
 		428DA76820CBAB7700A5B0C8 = {
@@ -142,6 +155,7 @@
 		428DA79520CBE1A100A5B0C8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				426C05B220CD305800E0BFB6 /* City */,
 				428DA7A820CBE2D700A5B0C8 /* Header */,
 				428DA7A920CBE2E200A5B0C8 /* ForecastText */,
 				428DA7AB20CBE2F600A5B0C8 /* HourlyForecast */,
@@ -280,6 +294,7 @@
 				428DA79B20CBE26A00A5B0C8 /* HeaderTableViewCell.xib in Resources */,
 				428DA7B020CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib in Resources */,
 				428DA7A320CBE2C500A5B0C8 /* DailyForecastTableViewCell.xib in Resources */,
+				426C05B620CD306F00E0BFB6 /* CityTableViewCell.xib in Resources */,
 				428DA77A20CBAB7700A5B0C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +355,7 @@
 				428DA79020CBAEDF00A5B0C8 /* City.swift in Sources */,
 				428DA79A20CBE26A00A5B0C8 /* HeaderTableViewCell.swift in Sources */,
 				428DA7B620CC78EC00A5B0C8 /* Extensions.swift in Sources */,
+				426C05B520CD306F00E0BFB6 /* CityTableViewCell.swift in Sources */,
 				428DA78F20CBAEDF00A5B0C8 /* CitiesData.swift in Sources */,
 				428DA79420CBBB6900A5B0C8 /* Forecast.swift in Sources */,
 				428DA7AF20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift in Sources */,

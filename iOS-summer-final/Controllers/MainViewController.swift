@@ -9,26 +9,49 @@
 import UIKit
 import MapKit
 
-class MainViewController: UIViewController, MKMapViewDelegate {
+class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBAction func openMenu() {
+        let bool: Bool = tableView.isHidden
+        tableView.isHidden = !bool
+    }
+    
     var myCity: City?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.isHidden = true
+        tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "aCell")
+        
         for coords in CitiesData.list {
             let pin = MKPointAnnotation()
             pin.coordinate = coords.coordinates
             pin.title = coords.name
             mapView.addAnnotation(pin)
         }
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "aCell", for: indexPath) as! CityTableViewCell
+        let city = CitiesData.list[indexPath.row]
+        cell.configure(name: city.name)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CitiesData.list.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        performSegue(withIdentifier: "toDetailsFromCell", sender: indexPath.row)
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -42,6 +65,13 @@ class MainViewController: UIViewController, MKMapViewDelegate {
         if segue.identifier == "toDetails" {
             if let destinationVC = segue.destination as? DetailsViewController {
                 destinationVC.aCity = myCity
+            }
+        }
+        
+        if segue.identifier == "toDetailsFromCell" {
+            print("boop")
+            if let destinationVC = segue.destination as? DetailsViewController, let indexPath = tableView.indexPathForSelectedRow {
+                destinationVC.aCity = CitiesData.list[indexPath.row]
             }
         }
     }
