@@ -69,7 +69,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         }
         
         if segue.identifier == "toDetailsFromCell" {
-            print("boop")
             if let destinationVC = segue.destination as? DetailsViewController, let indexPath = tableView.indexPathForSelectedRow {
                 destinationVC.aCity = CitiesData.list[indexPath.row]
             }
