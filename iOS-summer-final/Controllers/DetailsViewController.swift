@@ -19,6 +19,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.tableFooterView = UIView()
         
         let date = Date()
         let calendar = Calendar.current
@@ -96,6 +97,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "Header", for: indexPath) as! HeaderTableViewCell
@@ -103,6 +105,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                 let icon = aCity?.forecast?.icon,
                 let summary = aCity?.forecast?.summary {
                 cell.configure(temp: temperature, current: summary, icon: icon)
+                cell.layoutMargins = UIEdgeInsets.zero
             }
             return cell
             
