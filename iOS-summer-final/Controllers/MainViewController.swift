@@ -30,6 +30,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
         let logo = UIImage(named: "logo-cloudy")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
@@ -51,7 +53,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         
         for coords in cities {
-            print(coords.name)
             let pin = MKPointAnnotation()
             
             if !mapView.annotations.contains {$0.coordinate.latitude == coords.coordinates.latitude && $0.coordinate.longitude == coords.coordinates.longitude} {
@@ -165,10 +166,15 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
                     if !self.cities.contains(where: {$0.name == aCity.name}) {
                         self.cities.append(aCity)
                     }
+                    self.searchBar.endEditing(true)
                     self.performSegue(withIdentifier: "toDetailsFromSearch", sender: self)
                 }
             }
         }
+    }
+    
+    func doneButtonAction() {
+        self.view.endEditing(true)
     }
     
 }
