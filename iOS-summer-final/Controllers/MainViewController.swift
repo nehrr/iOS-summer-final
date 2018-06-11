@@ -30,6 +30,10 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let logo = UIImage(named: "logo-cloudy")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
         self.tableView.tableFooterView = UIView()
         tableView.isHidden = true
         searchBar.isHidden = true
