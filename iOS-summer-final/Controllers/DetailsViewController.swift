@@ -83,8 +83,10 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         case 1:
             return 1
         case 2:
-            return 10
-//            return aCity?.forecast?.hourlyForecast.count ?? 0
+            if let nb = aCity?.forecast?.hourlyForecast.count {
+                return nb > 0 ? 10 : 0
+            }
+            return 0
         case 3:
             return 1
         case 4:

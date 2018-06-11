@@ -25,6 +25,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     }
     
     var myCity: City?
+    var cities = CitiesData.list
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +34,9 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         tableView.isHidden = true
         searchBar.isHidden = true
         
-        searchBar.barTintColor = UIColor.red
-        
         tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "aCell")
         
-        for coords in CitiesData.list {
+        for coords in cities {
             let pin = MKPointAnnotation()
             pin.coordinate = coords.coordinates
             pin.title = coords.name
@@ -46,6 +45,16 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        for coords in cities {
+            let pin = MKPointAnnotation()
+            if !mapView.annotations.contains(where: {$0.coordinate.latitude == coords.coordinates.latitude && $0.coordinate.longitude == coords.coordinates.longitude}) {
+                pin.coordinate = coords.coordinates
+                pin.title = coords.name
+                mapView.addAnnotation(pin)
+            }
+        }
+        
         self.tableView.reloadData()
     }
     
@@ -55,14 +64,14 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "aCell", for: indexPath) as! CityTableViewCell
-        let city = CitiesData.list[indexPath.row]
+        let city = cities[indexPath.row]
         cell.configure(name: city.name)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CitiesData.list.count
+        return cities.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -87,7 +96,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         
         if segue.identifier == "toDetailsFromCell" {
             if let destinationVC = segue.destination as? DetailsViewController, let indexPath = tableView.indexPathForSelectedRow {
-                destinationVC.aCity = CitiesData.list[indexPath.row]
+                destinationVC.aCity = cities[indexPath.row]
             }
         }
         
@@ -108,12 +117,12 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         if let text = searchBar.text {
             getCoordinateFrom(address: text) { coordinate, error in
                 if let coordinate = coordinate {
-
+                    
                     let aCity = City(name: text, coordinates: coordinate)
                     self.myCity = aCity
                     
-                    if !CitiesData.list.contains(where: {$0.name == aCity.name}) {
-                        CitiesData.list.append(aCity)
+                    if !self.cities.contains(where: {$0.name == aCity.name}) {
+                        self.cities.append(aCity)
                     }
                     self.performSegue(withIdentifier: "toDetailsFromSearch", sender: self)
                 }
