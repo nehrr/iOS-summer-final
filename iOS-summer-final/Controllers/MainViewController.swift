@@ -53,6 +53,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         performSegue(withIdentifier: "toDetailsFromCell", sender: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

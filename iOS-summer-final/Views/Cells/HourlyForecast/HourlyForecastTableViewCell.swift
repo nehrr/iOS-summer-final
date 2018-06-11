@@ -27,7 +27,9 @@ class HourlyForecastTableViewCell: UITableViewCell {
         temp.round()
         
         self.time.text = time
-        self.humidity.text = String(format: "%.0f", humidity) + "%"
+        if humidity > 0 {
+            self.humidity.text = String(format: "%.0f", humidity) + "%"
+        }
         self.temperature.text = String(format: "%.0f", temp) + "°C"
         self.icon.image = UIImage(named: data.1)
     }
