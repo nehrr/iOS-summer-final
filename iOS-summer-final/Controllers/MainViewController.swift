@@ -47,8 +47,10 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         
         for coords in cities {
+            print(coords.name)
             let pin = MKPointAnnotation()
-            if !mapView.annotations.contains(where: {$0.coordinate.latitude == coords.coordinates.latitude && $0.coordinate.longitude == coords.coordinates.longitude}) {
+            
+            if !mapView.annotations.contains {$0.coordinate.latitude == coords.coordinates.latitude && $0.coordinate.longitude == coords.coordinates.longitude} {
                 pin.coordinate = coords.coordinates
                 pin.title = coords.name
                 mapView.addAnnotation(pin)
@@ -80,11 +82,46 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let city = cities[indexPath.row]
+            self.cities.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            let annot = mapView.annotations.first(where: {$0.title == city.name})
+            if let annotation = annot {
+                mapView.removeAnnotation(annotation)
+            }
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let city = view.annotation {
             myCity = City(name: city.title as! String, coordinates: city.coordinate)
             performSegue(withIdentifier: "toDetails", sender: self)
         }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        
+        let annotationIdentifier = "AnnotationIdentifier"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView!.canShowCallout = false
+        }
+        else {
+            annotationView!.annotation = annotation
+        }
+        
+        let pinImage = UIImage(named: "pin")
+        annotationView!.image = pinImage
+        
+        return annotationView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
