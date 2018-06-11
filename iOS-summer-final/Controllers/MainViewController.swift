@@ -18,10 +18,21 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     @IBAction func openMenu() {
         let bool: Bool = tableView.isHidden
         tableView.isHidden = !bool
+        
+        if !searchBar.isHidden {
+            searchBar.isHidden = true
+            self.view.endEditing(true)
+        }
+        
+        view.endEditing(true)
     }
     @IBAction func openSearch() {
         let bool: Bool = searchBar.isHidden
         searchBar.isHidden = !bool
+        
+        if !tableView.isHidden {
+            tableView.isHidden = true
+        }
     }
     
     var myCity: City?
@@ -30,13 +41,12 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        
         let logo = UIImage(named: "logo-cloudy")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         
         self.tableView.tableFooterView = UIView()
+        tableView.allowsSelectionDuringEditing = true
         tableView.isHidden = true
         searchBar.isHidden = true
         
@@ -65,6 +75,10 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         self.tableView.reloadData()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -87,7 +101,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let city = cities[indexPath.row]
@@ -169,12 +183,12 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
                     self.searchBar.endEditing(true)
                     self.performSegue(withIdentifier: "toDetailsFromSearch", sender: self)
                 }
+                
+                if error != nil {
+                    self.doAlert(title: "Error", message: "This city does not exist!")
+                }
             }
         }
-    }
-    
-    func doneButtonAction() {
-        self.view.endEditing(true)
     }
     
 }

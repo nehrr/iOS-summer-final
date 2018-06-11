@@ -46,3 +46,25 @@ extension UIView {
         self.isUserInteractionEnabled = true
     }
 }
+
+extension UIViewController {
+    func doAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
+            action in switch action.style {
+            case .default:
+                print("default")
+                self.navigationController?.popToRootViewController(animated: true)
+                
+            case .cancel:
+                print("cancel")
+                
+            case .destructive:
+                print("destructive")
+            }
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}
