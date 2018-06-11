@@ -77,6 +77,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+        self.searchBar.isHidden = true
+        self.tableView.isHidden = true
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,6 +88,9 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "aCell", for: indexPath) as! CityTableViewCell
         let city = cities[indexPath.row]
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(red:0.27, green:0.62, blue:0.98, alpha:1.0)
+        cell.selectedBackgroundView = backgroundView
         cell.configure(name: city.name)
         
         return cell
@@ -96,7 +101,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         performSegue(withIdentifier: "toDetailsFromCell", sender: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
