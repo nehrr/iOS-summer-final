@@ -19,6 +19,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(aCity)
         self.tableView.tableFooterView = UIView()
         
         let date = Date()

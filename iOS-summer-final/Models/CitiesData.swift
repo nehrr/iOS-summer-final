@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 struct CitiesData {
-    static let list = [
+    static var list = [
         City(name: "San Francisco", coordinates: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)),
         City(name: "London", coordinates: CLLocationCoordinate2D(latitude: 51.5074, longitude: 0.1278)),
         City(name: "Paris", coordinates: CLLocationCoordinate2D(latitude: 48.8566, longitude: 2.3522)),
