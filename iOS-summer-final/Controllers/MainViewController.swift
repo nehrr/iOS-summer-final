@@ -33,6 +33,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         tableView.isHidden = true
         searchBar.isHidden = true
         
+        searchBar.barTintColor = UIColor.red
+        
         tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "aCell")
         
         for coords in CitiesData.list {
@@ -118,7 +120,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
             }
         }
     }
-
     
 }
 
