@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="cloudy_widget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Io0-AQ-PoX">
+                                <rect key="frame" x="16" y="16" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RB-DZ-Jsj">
+                                <rect key="frame" x="262" y="16" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-wx-aDM">
+                                <rect key="frame" x="141" y="24" width="163" height="13"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Tap to check on .cloudy">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToApp" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="LFo-Xp-Owj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="e5h-wx-aDM" firstAttribute="top" secondItem="4RB-DZ-Jsj" secondAttribute="top" constant="8" id="3Vb-eK-llc"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4RB-DZ-Jsj" secondAttribute="trailing" constant="16" id="5Nx-Fj-8Ug"/>
+                            <constraint firstItem="4RB-DZ-Jsj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Io0-AQ-PoX" secondAttribute="trailing" id="7AU-4N-JR4"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="e5h-wx-aDM" secondAttribute="trailing" constant="16" id="89a-BE-Cm6"/>
+                            <constraint firstItem="Io0-AQ-PoX" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="16" id="HFg-Jn-rVd"/>
+                            <constraint firstAttribute="bottom" secondItem="e5h-wx-aDM" secondAttribute="bottom" id="iwC-aa-v2l"/>
+                            <constraint firstItem="Io0-AQ-PoX" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="qt4-0M-jSO"/>
+                            <constraint firstItem="4RB-DZ-Jsj" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="16" id="tL4-vL-xLQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="37"/>
+                    <connections>
+                        <outlet property="cityLabel" destination="4RB-DZ-Jsj" id="otU-Kl-pVu"/>
+                        <outlet property="randomLabel" destination="Io0-AQ-PoX" id="UQG-9P-oiB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

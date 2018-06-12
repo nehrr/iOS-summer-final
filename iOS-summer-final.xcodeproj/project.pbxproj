@@ -29,8 +29,36 @@
 		428DA7AF20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA7AD20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift */; };
 		428DA7B020CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 428DA7AE20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib */; };
 		428DA7B620CC78EC00A5B0C8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DA7B520CC78EC00A5B0C8 /* Extensions.swift */; };
+		42F2645A20D007BD00E00458 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42F2645920D007BD00E00458 /* NotificationCenter.framework */; };
+		42F2645D20D007BD00E00458 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F2645C20D007BD00E00458 /* TodayViewController.swift */; };
+		42F2646020D007BD00E00458 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42F2645E20D007BD00E00458 /* MainInterface.storyboard */; };
+		42F2646420D007BD00E00458 /* cloudy-widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 42F2645820D007BD00E00458 /* cloudy-widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4619E8F922975B3F4370E88A /* Pods_iOS_summer_final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BCE25281DE159FFBAEE4F3F /* Pods_iOS_summer_final.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		42F2646220D007BD00E00458 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 428DA76920CBAB7700A5B0C8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 42F2645720D007BD00E00458;
+			remoteInfo = "cloudy-widget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		42F2646820D007BD00E00458 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				42F2646420D007BD00E00458 /* cloudy-widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0BCE25281DE159FFBAEE4F3F /* Pods_iOS_summer_final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_summer_final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +86,12 @@
 		428DA7AD20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraInformationTableViewCell.swift; sourceTree = "<group>"; };
 		428DA7AE20CBE32C00A5B0C8 /* ExtraInformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtraInformationTableViewCell.xib; sourceTree = "<group>"; };
 		428DA7B520CC78EC00A5B0C8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		42F2645820D007BD00E00458 /* cloudy-widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "cloudy-widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		42F2645920D007BD00E00458 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		42F2645C20D007BD00E00458 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		42F2645F20D007BD00E00458 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		42F2646120D007BD00E00458 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42F2646920D007C700E00458 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1008EB4EB6643548111D7A /* Pods-iOS-summer-final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-summer-final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-summer-final/Pods-iOS-summer-final.debug.xcconfig"; sourceTree = "<group>"; };
 		DE92BD917574C32B570D5CA4 /* Pods-iOS-summer-final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-summer-final.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS-summer-final/Pods-iOS-summer-final.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,13 +105,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		42F2645520D007BD00E00458 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F2645A20D007BD00E00458 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		15B29C83BE0EB70E06A5A51B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42F2646920D007C700E00458 /* Alamofire.framework */,
 				0BCE25281DE159FFBAEE4F3F /* Pods_iOS_summer_final.framework */,
+				42F2645920D007BD00E00458 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				428DA77320CBAB7700A5B0C8 /* iOS-summer-final */,
+				42F2645B20D007BD00E00458 /* cloudy-widget */,
 				428DA77220CBAB7700A5B0C8 /* Products */,
 				79271E79210C557EF4B40F82 /* Pods */,
 				15B29C83BE0EB70E06A5A51B /* Frameworks */,
@@ -105,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				428DA77120CBAB7700A5B0C8 /* iOS-summer-final.app */,
+				42F2645820D007BD00E00458 /* cloudy-widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,6 +264,16 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		42F2645B20D007BD00E00458 /* cloudy-widget */ = {
+			isa = PBXGroup;
+			children = (
+				42F2645C20D007BD00E00458 /* TodayViewController.swift */,
+				42F2645E20D007BD00E00458 /* MainInterface.storyboard */,
+				42F2646120D007BD00E00458 /* Info.plist */,
+			);
+			path = "cloudy-widget";
+			sourceTree = "<group>";
+		};
 		79271E79210C557EF4B40F82 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,15 +295,34 @@
 				428DA76E20CBAB7700A5B0C8 /* Frameworks */,
 				428DA76F20CBAB7700A5B0C8 /* Resources */,
 				D6BAD830AD81206052F777FE /* [CP] Embed Pods Frameworks */,
+				42F2646820D007BD00E00458 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				42F2646320D007BD00E00458 /* PBXTargetDependency */,
 			);
 			name = "iOS-summer-final";
 			productName = "iOS-summer-final";
 			productReference = 428DA77120CBAB7700A5B0C8 /* iOS-summer-final.app */;
 			productType = "com.apple.product-type.application";
+		};
+		42F2645720D007BD00E00458 /* cloudy-widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42F2646720D007BD00E00458 /* Build configuration list for PBXNativeTarget "cloudy-widget" */;
+			buildPhases = (
+				42F2645420D007BD00E00458 /* Sources */,
+				42F2645520D007BD00E00458 /* Frameworks */,
+				42F2645620D007BD00E00458 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "cloudy-widget";
+			productName = "cloudy-widget";
+			productReference = 42F2645820D007BD00E00458 /* cloudy-widget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -260,6 +335,9 @@
 				ORGANIZATIONNAME = Ernoul;
 				TargetAttributes = {
 					428DA77020CBAB7700A5B0C8 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					42F2645720D007BD00E00458 = {
 						CreatedOnToolsVersion = 9.4;
 					};
 				};
@@ -278,6 +356,7 @@
 			projectRoot = "";
 			targets = (
 				428DA77020CBAB7700A5B0C8 /* iOS-summer-final */,
+				42F2645720D007BD00E00458 /* cloudy-widget */,
 			);
 		};
 /* End PBXProject section */
@@ -296,6 +375,14 @@
 				428DA7A320CBE2C500A5B0C8 /* DailyForecastTableViewCell.xib in Resources */,
 				426C05B620CD306F00E0BFB6 /* CityTableViewCell.xib in Resources */,
 				428DA77A20CBAB7700A5B0C8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42F2645620D007BD00E00458 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F2646020D007BD00E00458 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +450,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		42F2645420D007BD00E00458 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42F2645D20D007BD00E00458 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		42F2646320D007BD00E00458 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 42F2645720D007BD00E00458 /* cloudy-widget */;
+			targetProxy = 42F2646220D007BD00E00458 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		428DA77820CBAB7700A5B0C8 /* Main.storyboard */ = {
@@ -380,6 +483,14 @@
 				428DA77E20CBAB7A00A5B0C8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		42F2645E20D007BD00E00458 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42F2645F20D007BD00E00458 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -503,6 +614,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6C1008EB4EB6643548111D7A /* Pods-iOS-summer-final.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CD2TKDK76;
@@ -522,6 +634,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DE92BD917574C32B570D5CA4 /* Pods-iOS-summer-final.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CD2TKDK76;
@@ -532,6 +645,44 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nehrr.iOS-summer-final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		42F2646520D007BD00E00458 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CD2TKDK76;
+				INFOPLIST_FILE = "cloudy-widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "nehrr.iOS-summer-final.cloudy-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42F2646620D007BD00E00458 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5CD2TKDK76;
+				INFOPLIST_FILE = "cloudy-widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "nehrr.iOS-summer-final.cloudy-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -554,6 +705,15 @@
 			buildConfigurations = (
 				428DA78420CBAB7A00A5B0C8 /* Debug */,
 				428DA78520CBAB7A00A5B0C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42F2646720D007BD00E00458 /* Build configuration list for PBXNativeTarget "cloudy-widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42F2646520D007BD00E00458 /* Debug */,
+				42F2646620D007BD00E00458 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
