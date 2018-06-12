@@ -15,7 +15,8 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var aCity: City?
-    var now: Int?
+//    var now: Int?
+    var now: DateComponents?
     var timezone: String?
     
     override func viewDidLoad() {
@@ -24,8 +25,14 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.tableFooterView = UIView()
         
         let date = Date()
-        let calendar = Calendar.current
-        self.now = calendar.component(.hour, from: date)
+//        let calendar = Calendar.current
+//        self.now = calendar.component(.hour, from: date)
+//        print(timezone)
+        
+//        if let tz = self.timezone {
+//        self.now = Calendar.current.dateComponents(in: TimeZone(identifier: tz)!, from: date)
+//            print("NOW TIME: \(now)")
+//        }
         
         tableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "Header")
         tableView.register(UINib(nibName: "ForecastTextTableViewCell", bundle: nil), forCellReuseIdentifier: "HourlyForecastText")
@@ -63,6 +70,12 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.aCity?.forecast = forecast
                         self.timezone = json["timezone"].stringValue
                     }
+                    
+                    if let cityTimezone = self.timezone {
+                        let date = Date()
+                        self.now = Calendar.current.dateComponents(in: TimeZone(identifier: cityTimezone)!, from: date)
+                    }
+                    
                     self.tableView.reloadData()
                     self.tableView.activityStopAnimating()
                     
@@ -162,9 +175,9 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let labels = cell.contentView.subviews.compactMap { $0 as? UILabel }
-        
-        if let now = self.now {
-            if now <= 19 && now >= 8 {
+
+        if let hour = self.now?.hour {
+            if hour <= 19 && hour >= 8 {
                 cell.contentView.backgroundColor = UIColor.day
                 self.tableView.backgroundColor = UIColor.day
                 for label in labels {
