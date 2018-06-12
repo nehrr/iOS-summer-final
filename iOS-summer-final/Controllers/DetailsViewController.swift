@@ -61,8 +61,10 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                     }
                     
                     if let cityTimezone = self.timezone {
-                        let date = Date()
-                        self.now = Calendar.current.dateComponents(in: TimeZone(identifier: cityTimezone)!, from: date)
+                        if let tZ = TimeZone(identifier: cityTimezone) {
+                            let date = Date()
+                            self.now = Calendar.current.dateComponents(in: tZ, from: date)
+                        }
                     }
                     
                     self.tableView.reloadData()
@@ -170,28 +172,28 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
             if hour <= 19 && hour >= 8 {
                 
                 switch weather {
-
+                    
                 case "clear-day", "clear-night" :
                     cell.contentView.backgroundColor = UIColor.day
                     self.tableView.backgroundColor = UIColor.day
                     for label in labels {
                         label.textColor = UIColor.black
                     }
-                
+                    
                 case "cloudy", "partly-cloudy-day", "fog", "partly-cloudy-night":
                     cell.contentView.backgroundColor = UIColor.overcast
                     self.tableView.backgroundColor = UIColor.overcast
                     for label in labels {
                         label.textColor = UIColor.black
                     }
-                
+                    
                 case "rain", "sleet" :
                     cell.contentView.backgroundColor = UIColor.rainy
                     self.tableView.backgroundColor = UIColor.rainy
                     for label in labels {
                         label.textColor = UIColor.black
                     }
-                
+                    
                 case "snow" :
                     cell.contentView.backgroundColor = UIColor.white
                     self.tableView.backgroundColor = UIColor.white
@@ -199,7 +201,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                     for label in labels {
                         label.textColor = UIColor.gray
                     }
-                
+                    
                 default:
                     cell.contentView.backgroundColor = UIColor.day
                     self.tableView.backgroundColor = UIColor.day

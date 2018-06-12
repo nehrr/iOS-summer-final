@@ -43,6 +43,10 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let selected = tabBar.items?[1] {
+            tabBar.selectedItem = selected
+        }
+        
         tabBar.unselectedItemTintColor = UIColor.white
         
         let logo = UIImage(named: "logo-cloudy")
@@ -124,8 +128,12 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let city = view.annotation {
-            myCity = City(name: city.title as! String, coordinates: city.coordinate)
-            performSegue(withIdentifier: "toDetails", sender: self)
+            if let name = city.title {
+                if let cityName = name {
+                    myCity = City(name: cityName, coordinates: city.coordinate)
+                    performSegue(withIdentifier: "toDetails", sender: self)
+                }
+            }
         }
     }
     
