@@ -10,11 +10,13 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITabBarDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tabBar: UITabBar!
+    
     @IBAction func openMenu() {
         let bool: Bool = tableView.isHidden
         tableView.isHidden = !bool
@@ -41,6 +43,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBar.unselectedItemTintColor = UIColor.white
+        
         let logo = UIImage(named: "logo-cloudy")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
@@ -52,7 +56,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         
         tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "aCell")
         
-        mapView.mapType = .hybrid
         for coords in cities {
             let pin = MKPointAnnotation()
             pin.coordinate = coords.coordinates
@@ -193,6 +196,17 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
                     self.doAlert(title: "Error", message: "This city does not exist!")
                 }
             }
+        }
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
+        if item.tag == 0 {
+            mapView.mapType = .hybrid
+        }
+        
+        if item.tag == 1 {
+            mapView.mapType = .standard
         }
     }
     
