@@ -15,24 +15,13 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var aCity: City?
-//    var now: Int?
     var now: DateComponents?
     var timezone: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(aCity)
+
         self.tableView.tableFooterView = UIView()
-        
-        let date = Date()
-//        let calendar = Calendar.current
-//        self.now = calendar.component(.hour, from: date)
-//        print(timezone)
-        
-//        if let tz = self.timezone {
-//        self.now = Calendar.current.dateComponents(in: TimeZone(identifier: tz)!, from: date)
-//            print("NOW TIME: \(now)")
-//        }
         
         tableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "Header")
         tableView.register(UINib(nibName: "ForecastTextTableViewCell", bundle: nil), forCellReuseIdentifier: "HourlyForecastText")
