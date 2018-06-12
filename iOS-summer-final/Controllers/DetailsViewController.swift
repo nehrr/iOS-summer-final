@@ -168,8 +168,39 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if let hour = self.now?.hour, let weather = aCity?.forecast?.icon {
             if hour <= 19 && hour >= 8 {
+                
+                switch weather {
 
-                if weather == "clear-day" || weather == "clear-night" {
+                case "clear-day", "clear-night" :
+                    cell.contentView.backgroundColor = UIColor.day
+                    self.tableView.backgroundColor = UIColor.day
+                    for label in labels {
+                        label.textColor = UIColor.black
+                    }
+                
+                case "cloudy", "partly-cloudy-day", "fog", "partly-cloudy-night":
+                    cell.contentView.backgroundColor = UIColor.overcast
+                    self.tableView.backgroundColor = UIColor.overcast
+                    for label in labels {
+                        label.textColor = UIColor.black
+                    }
+                
+                case "rain", "sleet" :
+                    cell.contentView.backgroundColor = UIColor.rainy
+                    self.tableView.backgroundColor = UIColor.rainy
+                    for label in labels {
+                        label.textColor = UIColor.black
+                    }
+                
+                case "snow" :
+                    cell.contentView.backgroundColor = UIColor.white
+                    self.tableView.backgroundColor = UIColor.white
+                    self.tableView.separatorColor = UIColor.black
+                    for label in labels {
+                        label.textColor = UIColor.gray
+                    }
+                
+                default:
                     cell.contentView.backgroundColor = UIColor.day
                     self.tableView.backgroundColor = UIColor.day
                     for label in labels {
@@ -177,30 +208,6 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                     }
                 }
                 
-                if weather == "cloudy" || weather == "partly-cloudy-day" || weather == "fog" || weather == "fog" || weather == "partly-cloudy-night" {
-                    cell.contentView.backgroundColor = UIColor.overcast
-                    self.tableView.backgroundColor = UIColor.overcast
-                    for label in labels {
-                        label.textColor = UIColor.black
-                    }
-                }
-                
-                if weather == "rain" || weather == "sleet" {
-                    cell.contentView.backgroundColor = UIColor.rainy
-                    self.tableView.backgroundColor = UIColor.rainy
-                    for label in labels {
-                        label.textColor = UIColor.black
-                    }
-                }
-                
-                if weather == "snow" {
-                    cell.contentView.backgroundColor = UIColor.white
-                    self.tableView.backgroundColor = UIColor.white
-                    self.tableView.separatorColor = UIColor.black
-                    for label in labels {
-                        label.textColor = UIColor.gray
-                    }
-                }
             } else {
                 cell.backgroundColor = UIColor.night
                 self.tableView.backgroundColor = UIColor.night

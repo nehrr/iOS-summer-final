@@ -52,6 +52,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         
         tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "aCell")
         
+        mapView.mapType = .hybrid
         for coords in cities {
             let pin = MKPointAnnotation()
             pin.coordinate = coords.coordinates
