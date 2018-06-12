@@ -16,6 +16,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var aCity: City?
     var now: Int?
+    var timezone: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                         let json = JSON(value)
                         let forecast = Forecast(json: json)
                         self.aCity?.forecast = forecast
+                        self.timezone = json["timezone"].stringValue
                     }
                     self.tableView.reloadData()
                     self.tableView.activityStopAnimating()
@@ -122,8 +124,8 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HourlyForecast", for: indexPath) as! HourlyForecastTableViewCell
-            if let hourlyForecast = aCity?.forecast?.hourlyForecast[indexPath.row] {
-                cell.configure(withData: hourlyForecast)
+            if let hourlyForecast = aCity?.forecast?.hourlyForecast[indexPath.row], let tz = self.timezone {
+                cell.configure(withData: hourlyForecast, timezone: tz)
             }
             return cell
             
