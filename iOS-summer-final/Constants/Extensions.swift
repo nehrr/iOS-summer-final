@@ -12,6 +12,9 @@ import UIKit
 extension UIColor {
     static let night = UIColor(red:0.09, green:0.27, blue:0.44, alpha:1.0)
     static let day = UIColor(red:0.64, green:0.85, blue:0.94, alpha:1.0)
+    static let overcast = UIColor(red:0.76, green:0.82, blue:0.91, alpha:1.0)
+    static let rainy = UIColor(red:0.85, green:0.93, blue:0.98, alpha:1.0)
+    static let snow = UIColor(red:0.76, green:0.82, blue:0.91, alpha:1.0)
 }
 
 extension UIView {

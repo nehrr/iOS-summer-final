@@ -20,7 +20,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableView.tableFooterView = UIView()
         
         tableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "Header")
@@ -164,13 +164,42 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let labels = cell.contentView.subviews.compactMap { $0 as? UILabel }
-
-        if let hour = self.now?.hour {
+        
+        
+        if let hour = self.now?.hour, let weather = aCity?.forecast?.icon {
             if hour <= 19 && hour >= 8 {
-                cell.contentView.backgroundColor = UIColor.day
-                self.tableView.backgroundColor = UIColor.day
-                for label in labels {
-                    label.textColor = UIColor.black
+
+                if weather == "clear-day" || weather == "clear-night" {
+                    cell.contentView.backgroundColor = UIColor.day
+                    self.tableView.backgroundColor = UIColor.day
+                    for label in labels {
+                        label.textColor = UIColor.black
+                    }
+                }
+                
+                if weather == "cloudy" || weather == "partly-cloudy-day" || weather == "fog" || weather == "fog" || weather == "partly-cloudy-night" {
+                    cell.contentView.backgroundColor = UIColor.overcast
+                    self.tableView.backgroundColor = UIColor.overcast
+                    for label in labels {
+                        label.textColor = UIColor.black
+                    }
+                }
+                
+                if weather == "rain" || weather == "sleet" {
+                    cell.contentView.backgroundColor = UIColor.rainy
+                    self.tableView.backgroundColor = UIColor.rainy
+                    for label in labels {
+                        label.textColor = UIColor.black
+                    }
+                }
+                
+                if weather == "snow" {
+                    cell.contentView.backgroundColor = UIColor.white
+                    self.tableView.backgroundColor = UIColor.white
+                    self.tableView.separatorColor = UIColor.black
+                    for label in labels {
+                        label.textColor = UIColor.gray
+                    }
                 }
             } else {
                 cell.backgroundColor = UIColor.night
