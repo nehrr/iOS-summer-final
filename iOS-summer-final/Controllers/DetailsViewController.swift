@@ -33,6 +33,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(UINib(nibName: "ForecastTextTableViewCell", bundle: nil), forCellReuseIdentifier: "ExtraText")
         tableView.register(UINib(nibName: "ExtraInformationTableViewCell", bundle: nil), forCellReuseIdentifier: "ExtraInformation")
         
+        self.tableView.activityStartAnimating(backgroundColor: UIColor.day)
         self.getData()
         
         if let cityName = aCity?.name {
@@ -53,8 +54,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func getData() {
-        self.tableView.activityStartAnimating(backgroundColor: UIColor.day)
-        
+
         if let cityLat = aCity?.coordinates.latitude, let cityLong = aCity?.coordinates.longitude {
             let url: String = "https://api.darksky.net/forecast/0d387f3d301b383589fe5b5350cf9a77/\(cityLat),\(cityLong)?units=si"
             print(url)
