@@ -56,7 +56,11 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                     if let value = response.result.value {
                         let json = JSON(value)
                         let forecast = Forecast(json: json)
+                        let dailyForecast = DailyForecast(json: json)
+                        let hourlyForecast = HourlyForecast(json: json)
                         self.aCity?.forecast = forecast
+                        self.aCity?.forecast?.dailyForecast = dailyForecast
+                        self.aCity?.forecast?.hourlyForecast = hourlyForecast
                         self.timezone = json["timezone"].stringValue
                     }
                     
@@ -89,14 +93,14 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         case 1:
             return 1
         case 2:
-            if let nb = aCity?.forecast?.hourlyForecast.count {
+            if let nb = aCity?.forecast?.hourlyForecast?.hourlyForecast.count {
                 return nb > 0 ? 10 : 0
             }
             return 0
         case 3:
             return 1
         case 4:
-            return aCity?.forecast?.dailyForecast.count ?? 0
+            return aCity?.forecast?.dailyForecast?.dailyForecast.count ?? 0
         case 5:
             return 1
         case 6:
@@ -121,28 +125,28 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HourlyForecastText", for: indexPath) as! ForecastTextTableViewCell
-            if let text = aCity?.forecast?.hourlySummary {
+            if let text = aCity?.forecast?.hourlyForecast?.hourlySummary {
                 cell.configure(text: text)
             }
             return cell
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "HourlyForecast", for: indexPath) as! HourlyForecastTableViewCell
-            if let hourlyForecast = aCity?.forecast?.hourlyForecast[indexPath.row], let tz = self.timezone {
+            if let hourlyForecast = aCity?.forecast?.hourlyForecast?.hourlyForecast[indexPath.row], let tz = self.timezone {
                 cell.configure(withData: hourlyForecast, timezone: tz)
             }
             return cell
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DailyForecastText", for: indexPath) as! ForecastTextTableViewCell
-            if let text = aCity?.forecast?.dailySummary {
+            if let text = aCity?.forecast?.dailyForecast?.dailySummary {
                 cell.configure(text: text)
             }
             return cell
             
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: "DailyForecast", for: indexPath) as! DailyForecastTableViewCell
-            if let dailyForecast = aCity?.forecast?.dailyForecast[indexPath.row] {
+            if let dailyForecast = aCity?.forecast?.dailyForecast?.dailyForecast[indexPath.row] {
                 cell.configure(withData: dailyForecast)
             }
             return cell
