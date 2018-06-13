@@ -87,7 +87,6 @@ extension MainViewController: GMSAutocompleteViewControllerDelegate {
                     if !self.cities.contains(where: {$0.name == aCity.name}) {
                         self.cities.append(aCity)
                     }
-//                    self.searchBar.endEditing(true)
                     self.performSegue(withIdentifier: "toDetailsFromSearch", sender: self)
                 }
                 
@@ -99,16 +98,13 @@ extension MainViewController: GMSAutocompleteViewControllerDelegate {
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
+        self.doAlert(title: "Error", message: "Could not autocomplete :(")
     }
     
-    // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         dismiss(animated: true, completion: nil)
     }
     
-    // Turn the network activity indicator on and off again.
     func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }

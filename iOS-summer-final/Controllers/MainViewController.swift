@@ -61,9 +61,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.isHidden = true
-        
+
         locationManager.delegate = self
         
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
@@ -85,9 +83,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         
         self.tableView.tableFooterView = UIView()
         tableView.allowsSelectionDuringEditing = true
-//        tableView.isHidden = true
-//        searchBar.isHidden = true
-//
+        tableView.isHidden = true
+
         tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "aCell")
         
         for coords in cities {
