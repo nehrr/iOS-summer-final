@@ -68,6 +68,8 @@
 		426C05B420CD306F00E0BFB6 /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		4289092620D103930075D563 /* HourlyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecast.swift; sourceTree = "<group>"; };
 		4289092820D1039E0075D563 /* DailyForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		4289092A20D125580075D563 /* iOS-summer-final.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-summer-final.entitlements"; sourceTree = "<group>"; };
+		4289092B20D125610075D563 /* cloudy-widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "cloudy-widget.entitlements"; sourceTree = "<group>"; };
 		428DA77120CBAB7700A5B0C8 /* iOS-summer-final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-summer-final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		428DA77420CBAB7700A5B0C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		428DA77620CBAB7700A5B0C8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 		428DA77320CBAB7700A5B0C8 /* iOS-summer-final */ = {
 			isa = PBXGroup;
 			children = (
+				4289092A20D125580075D563 /* iOS-summer-final.entitlements */,
 				428DA7B420CC78D600A5B0C8 /* Constants */,
 				428DA78820CBAC0500A5B0C8 /* Controllers */,
 				428DA78720CBAC0100A5B0C8 /* Views */,
@@ -273,6 +276,7 @@
 		42F2645B20D007BD00E00458 /* cloudy-widget */ = {
 			isa = PBXGroup;
 			children = (
+				4289092B20D125610075D563 /* cloudy-widget.entitlements */,
 				42F2645C20D007BD00E00458 /* TodayViewController.swift */,
 				42F2645E20D007BD00E00458 /* MainInterface.storyboard */,
 				42F2646120D007BD00E00458 /* Info.plist */,
@@ -342,9 +346,19 @@
 				TargetAttributes = {
 					428DA77020CBAB7700A5B0C8 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					42F2645720D007BD00E00458 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -624,6 +638,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iOS-summer-final/iOS-summer-final.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CD2TKDK76;
 				INFOPLIST_FILE = "iOS-summer-final/Info.plist";
@@ -644,6 +659,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "iOS-summer-final/iOS-summer-final.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CD2TKDK76;
 				INFOPLIST_FILE = "iOS-summer-final/Info.plist";
@@ -661,6 +677,7 @@
 		42F2646520D007BD00E00458 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "cloudy-widget/cloudy-widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CD2TKDK76;
 				INFOPLIST_FILE = "cloudy-widget/Info.plist";
@@ -680,6 +697,7 @@
 		42F2646620D007BD00E00458 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "cloudy-widget/cloudy-widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5CD2TKDK76;
 				INFOPLIST_FILE = "cloudy-widget/Info.plist";

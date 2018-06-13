@@ -49,9 +49,16 @@ class TodayViewController: UIViewController, NCWidgetProviding, CLLocationManage
             //                print(self.location)
             //            }
             
-            if let city = geoLoc?.locality {
-                self.city = city
-                self.cityLabel.text = city
+            if let city = geoLoc, let coords = geoLoc?.location?.coordinate {
+                self.city = city.locality
+                self.cityLabel.text = city.locality
+                
+                if let userDefaults = UserDefaults(suiteName: "group.nehrr.TodayExtensionSharingDefaults") {
+                    userDefaults.set(city.locality, forKey: "cityName")
+                    userDefaults.set(coords.latitude, forKey: "latitude")
+                    userDefaults.set(coords.longitude, forKey: "longitude")
+                    userDefaults.synchronize()
+                }
             }
         }
         

@@ -59,6 +59,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     
     var myCity: City?
     var cities = CitiesData.list
+    var coordsFromWidget: String?
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
