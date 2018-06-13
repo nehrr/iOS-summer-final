@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import GoogleMapsBase
 import GooglePlaces
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,13 +45,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let detailController: DetailsViewController = storyboard.instantiateViewController(withIdentifier: "Details") as! DetailsViewController
             detailController.aCity = myCity
             
-//            let mainController: MainViewController = storyboard.instantiateViewController(withIdentifier: "Main") as! MainViewController
-//            if let city = myCity {
-//                mainController.cities.append(city)
+            //tried to make it add to cities array + center on it but it won't work ¯\_(ツ)_/¯
+//            let mainController: MainViewController = storyboard.instantiateViewController(withIdentifier: "Map") as! MainViewController
+////            mainController.myCity = myCity
+//            if let aCity = myCity {
+//                mainController.cities.append(aCity)
+//                let center = CLLocationCoordinate2D(latitude: aCity.coordinates.latitude, longitude: aCity.coordinates.longitude)
+//                let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+//                if let map = mainController.mapView {
+//                map.setRegion(region, animated: false)
+//                }
 //            }
             
             (self.window?.rootViewController as! UINavigationController).pushViewController(detailController, animated: true)
         }
+        
         return true
     }
     
