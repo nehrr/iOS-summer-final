@@ -177,14 +177,14 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                 switch weather {
                     
-                case "clear-day", "clear-night", "partly-cloudy-day", "partly-cloudy-night" :
+                case "clear-day", "clear-night" :
                     cell.contentView.backgroundColor = UIColor.day
                     self.tableView.backgroundColor = UIColor.day
                     for label in labels {
                         label.textColor = UIColor.black
                     }
                     
-                case "cloudy", "fog" :
+                case "cloudy", "fog", "partly-cloudy-day", "partly-cloudy-night" :
                     cell.contentView.backgroundColor = UIColor.overcast
                     self.tableView.backgroundColor = UIColor.overcast
                     for label in labels {

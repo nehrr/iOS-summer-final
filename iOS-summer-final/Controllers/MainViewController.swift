@@ -40,7 +40,10 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         lookUpCurrentLocation { geoLoc in
             if let cityName = geoLoc?.locality, let coordinates = geoLoc?.location?.coordinate {
                 let aCity = City(name: cityName, coordinates: coordinates)
-                self.cities.append(aCity)
+                
+                if !self.cities.contains(where: {$0.name == aCity.name}) {
+                    self.cities.append(aCity)
+                }
                 self.myCity = aCity
                 
                 let center = CLLocationCoordinate2D(latitude: aCity.coordinates.latitude, longitude: aCity.coordinates.longitude)
