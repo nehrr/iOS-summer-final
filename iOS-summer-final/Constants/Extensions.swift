@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import GooglePlaces
 
 extension UIColor {
     static let night = UIColor(red:0.09, green:0.27, blue:0.44, alpha:1.0)
@@ -69,5 +70,50 @@ extension UIViewController {
         }))
         
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension MainViewController: GMSAutocompleteViewControllerDelegate {
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        dismiss(animated: true, completion: nil)
+        
+        if let adress = place.formattedAddress {
+            self.getCoordinateFrom(address: adress) { coordinate, error in
+                if let coordinate = coordinate {
+                    
+                    let aCity = City(name: place.name, coordinates: coordinate)
+                    self.myCity = aCity
+                    
+                    if !self.cities.contains(where: {$0.name == aCity.name}) {
+                        self.cities.append(aCity)
+                    }
+//                    self.searchBar.endEditing(true)
+                    self.performSegue(withIdentifier: "toDetailsFromSearch", sender: self)
+                }
+                
+                if error != nil {
+                    self.doAlert(title: "Error", message: "This city does not exist!")
+                }
+            }
+        }
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }

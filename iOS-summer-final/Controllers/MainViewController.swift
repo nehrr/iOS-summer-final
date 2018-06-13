@@ -9,33 +9,30 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GooglePlaces
 
 class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITabBarDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabBar: UITabBar!
     
     @IBAction func openMenu() {
         let bool: Bool = tableView.isHidden
         tableView.isHidden = !bool
         
-        if !searchBar.isHidden {
-            searchBar.isHidden = true
-            self.view.endEditing(true)
-        }
-        
         view.endEditing(true)
     }
     @IBAction func openSearch() {
-        let bool: Bool = searchBar.isHidden
-        searchBar.isHidden = !bool
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
         
         if !tableView.isHidden {
             tableView.isHidden = true
         }
     }
+    
     @IBAction func getLocation() {
         lookUpCurrentLocation { geoLoc in
             if let cityName = geoLoc?.locality, let coordinates = geoLoc?.location?.coordinate {
@@ -65,6 +62,8 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.isHidden = true
+        
         locationManager.delegate = self
         
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
@@ -86,9 +85,9 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         
         self.tableView.tableFooterView = UIView()
         tableView.allowsSelectionDuringEditing = true
-        tableView.isHidden = true
-        searchBar.isHidden = true
-        
+//        tableView.isHidden = true
+//        searchBar.isHidden = true
+//
         tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "aCell")
         
         for coords in cities {
@@ -116,7 +115,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        self.searchBar.isHidden = true
         self.tableView.isHidden = true
     }
     
@@ -214,28 +212,6 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
     func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
         CLGeocoder().geocodeAddressString(address) { placemarks, error in
             completion(placemarks?.first?.location?.coordinate, error)
-        }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let text = searchBar.text {
-            getCoordinateFrom(address: text) { coordinate, error in
-                if let coordinate = coordinate {
-                    
-                    let aCity = City(name: text, coordinates: coordinate)
-                    self.myCity = aCity
-                    
-                    if !self.cities.contains(where: {$0.name == aCity.name}) {
-                        self.cities.append(aCity)
-                    }
-                    self.searchBar.endEditing(true)
-                    self.performSegue(withIdentifier: "toDetailsFromSearch", sender: self)
-                }
-                
-                if error != nil {
-                    self.doAlert(title: "Error", message: "This city does not exist!")
-                }
-            }
         }
     }
     

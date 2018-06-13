@@ -8,5 +8,6 @@ target 'iOS-summer-final' do
   # Pods for iOS-summer-final
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'GooglePlaces'
 
 end

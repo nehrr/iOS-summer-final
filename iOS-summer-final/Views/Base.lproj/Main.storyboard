@@ -46,14 +46,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="zM7-Od-2ce"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="City, Country" translatesAutoresizingMaskIntoConstraints="NO" id="Y2G-SW-J19">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <color key="barTintColor" red="0.21889129190000001" green="0.59881817339999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="V4g-zA-c7i"/>
-                                </connections>
-                            </searchBar>
                             <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-cH-W5b">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,17 +73,14 @@
                             <constraint firstItem="m3P-cH-W5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BDH-FY-JfD"/>
                             <constraint firstItem="tAj-97-wso" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ChB-Up-pLB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m3P-cH-W5b" secondAttribute="trailing" id="EMs-wT-wNC"/>
-                            <constraint firstItem="Y2G-SW-J19" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="GG9-hg-XuF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tAj-97-wso" secondAttribute="trailing" id="MdO-QF-JJZ"/>
                             <constraint firstItem="tAj-97-wso" firstAttribute="bottom" secondItem="m3P-cH-W5b" secondAttribute="top" id="WaU-yI-opj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ObS-Y7-rDQ" secondAttribute="trailing" id="Wcx-lA-X5t"/>
                             <constraint firstItem="m3P-cH-W5b" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Xx2-YJ-HIq"/>
                             <constraint firstItem="ObS-Y7-rDQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aKe-N7-Q5u"/>
                             <constraint firstItem="ANz-Mv-IAT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bQM-0L-lNz"/>
-                            <constraint firstItem="Y2G-SW-J19" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bzv-oE-rah"/>
                             <constraint firstItem="ObS-Y7-rDQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j1n-K4-ph7"/>
                             <constraint firstItem="tAj-97-wso" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="jyb-0i-z4v"/>
-                            <constraint firstItem="Y2G-SW-J19" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lbU-Qo-lwm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ObS-Y7-rDQ" secondAttribute="bottom" id="ox6-Pm-pMc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -112,7 +101,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="ObS-Y7-rDQ" id="K0v-IJ-KjT"/>
-                        <outlet property="searchBar" destination="Y2G-SW-J19" id="f86-kH-c7i"/>
                         <outlet property="tabBar" destination="m3P-cH-W5b" id="79H-87-MUU"/>
                         <outlet property="tableView" destination="tAj-97-wso" id="KY8-x9-iAE"/>
                         <segue destination="FEp-XW-HXL" kind="show" identifier="toDetails" id="t1Y-we-Xvk"/>
