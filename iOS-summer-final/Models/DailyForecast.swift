@@ -12,15 +12,15 @@ import SwiftyJSON
 class DailyForecast {
     
     var dailySummary: String?
-    var dailyForecast: [(time: String, icon: String, maxTemp: String, minTemp: String)] = []
+    var dailyForecast: [(time: Double, icon: String, maxTemp: Double, minTemp: Double)] = []
     
     init(json: JSON) {
         self.dailySummary = json["daily"]["summary"].stringValue
         for dailyData in json["daily"]["data"].arrayValue {
-            self.dailyForecast.append((time: dailyData["time"].stringValue,
+            self.dailyForecast.append((time: dailyData["time"].doubleValue,
                                        icon: dailyData["icon"].stringValue,
-                                       maxTemp: dailyData["temperatureMax"].stringValue,
-                                       minTemp: dailyData["temperatureMin"].stringValue))
+                                       maxTemp: dailyData["temperatureMax"].doubleValue,
+                                       minTemp: dailyData["temperatureMin"].doubleValue))
         }
     }
 

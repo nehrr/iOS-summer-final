@@ -15,15 +15,15 @@ class DailyForecastTableViewCell: UITableViewCell {
     @IBOutlet weak var maxTemp: UILabel!
     @IBOutlet weak var minTemp: UILabel!
     
-    func configure(withData data: (String, String, String, String)) {
-        let date = Date(timeIntervalSince1970: Double(data.0)!)
+    func configure(withData data: (Double, String, Double, Double)) {
+        let date = Date(timeIntervalSince1970: data.0)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         let day = dateFormatter.string(from: date)
         
-        var maxTemp = Double(data.2)!
+        var maxTemp = data.2
         maxTemp.round()
-        var minTemp = Double(data.3)!
+        var minTemp = data.3
         minTemp.round()
 
         self.day.text = day

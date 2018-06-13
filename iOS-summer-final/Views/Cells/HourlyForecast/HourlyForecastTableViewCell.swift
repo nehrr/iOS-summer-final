@@ -15,16 +15,16 @@ class HourlyForecastTableViewCell: UITableViewCell {
     @IBOutlet weak var humidity: UILabel!
     @IBOutlet weak var temperature: UILabel!
     
-    func configure(withData data: (String, String, String, String), timezone: String) {
-        let date = Date(timeIntervalSince1970: Double(data.0)!)
+    func configure(withData data: (Double, String, Double, Double), timezone: String) {
+        let date = Date(timeIntervalSince1970: data.0)
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH"
         timeFormatter.timeZone = TimeZone(identifier: timezone)
         let time = timeFormatter.string(from: date)
         
-        var humidity = Double(data.2)! * 100
+        var humidity = data.2 * 100
         humidity.round()
-        var temp = Double(data.3)!
+        var temp = data.3
         temp.round()
         
         self.time.text = time
