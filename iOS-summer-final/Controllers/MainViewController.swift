@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITabBarDelegate {
+class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UITabBarDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
@@ -36,12 +36,32 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
             tableView.isHidden = true
         }
     }
+    @IBAction func getLocation() {
+        lookUpCurrentLocation { geoLoc in
+            if let cityName = geoLoc?.locality, let coordinates = geoLoc?.location?.coordinate {
+                let aCity = City(name: cityName, coordinates: coordinates)
+                self.cities.append(aCity)
+                self.myCity = aCity
+                self.performSegue(withIdentifier: "toDetails", sender: self)
+            }
+        }
+    }
     
     var myCity: City?
     var cities = CitiesData.list
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self
+        
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+            locationManager.requestLocation()
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
         
         if let selected = tabBar.items?[1] {
             tabBar.selectedItem = selected
@@ -216,6 +236,37 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
         
         if item.tag == 1 {
             mapView.mapType = .standard
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let _ = locations.last?.coordinate.latitude, let _ = locations.last?.coordinate.longitude {
+            //            print("\(lat),\(long)")
+        } else {
+            //            print("No coordinates")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?) -> Void ) {
+        if let lastLocation = self.locationManager.location {
+            let geocoder = CLGeocoder()
+            
+            geocoder.reverseGeocodeLocation(lastLocation, completionHandler: { (placemarks, error) in
+                if error == nil {
+                    let firstLocation = placemarks?[0]
+                    completionHandler(firstLocation)
+                }
+                else {
+                    completionHandler(nil)
+                }
+            })
+        }
+        else {
+            completionHandler(nil)
         }
     }
     

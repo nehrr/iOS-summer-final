@@ -67,9 +67,17 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="NAA-0o-Kcg"/>
                                 </connections>
                             </tabBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANz-Mv-IAT">
+                                <rect key="frame" x="16" y="570" width="32" height="32"/>
+                                <state key="normal" image="navigation"/>
+                                <connections>
+                                    <action selector="getLocation" destination="BYZ-38-t0r" eventType="touchUpInside" id="wFo-GQ-eS4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="m3P-cH-W5b" firstAttribute="top" secondItem="ANz-Mv-IAT" secondAttribute="bottom" constant="16" id="62W-31-vgz"/>
                             <constraint firstItem="m3P-cH-W5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BDH-FY-JfD"/>
                             <constraint firstItem="tAj-97-wso" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ChB-Up-pLB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="m3P-cH-W5b" secondAttribute="trailing" id="EMs-wT-wNC"/>
@@ -79,6 +87,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ObS-Y7-rDQ" secondAttribute="trailing" id="Wcx-lA-X5t"/>
                             <constraint firstItem="m3P-cH-W5b" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Xx2-YJ-HIq"/>
                             <constraint firstItem="ObS-Y7-rDQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aKe-N7-Q5u"/>
+                            <constraint firstItem="ANz-Mv-IAT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bQM-0L-lNz"/>
                             <constraint firstItem="Y2G-SW-J19" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bzv-oE-rah"/>
                             <constraint firstItem="ObS-Y7-rDQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j1n-K4-ph7"/>
                             <constraint firstItem="tAj-97-wso" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="jyb-0i-z4v"/>
@@ -233,9 +242,10 @@
         <image name="icons8-menu-50" width="50" height="50"/>
         <image name="magnifying-glass" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
+        <image name="navigation" width="32" height="32"/>
         <image name="worldwide" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kle-4o-jb9"/>
+        <segue reference="9Uw-NC-dnP"/>
     </inferredMetricsTieBreakers>
 </document>
