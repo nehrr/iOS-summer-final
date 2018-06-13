@@ -14,8 +14,8 @@ class HeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var currentForecast: UILabel!
     
-    func configure(temp: String, current: String, icon: String) {
-        var temp = Double(temp)!
+    func configure(temp: Double, current: String, icon: String) {
+        var temp = temp
         temp.round()
         
         self.icon.image = UIImage(named: icon)
