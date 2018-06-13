@@ -33,7 +33,7 @@ extension UIView {
         bgImage.contentMode = .scaleAspectFit
         backgroundView.addSubview(bgImage)
         
-        UIImageView.animate(withDuration: 1.5) {
+        UIImageView.animate(withDuration: 3) {
             bgImage.alpha = 0
             bgImage.transform = bgImage.transform.rotated(by: CGFloat.pi)
         }

@@ -17,11 +17,13 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     var aCity: City?
     var now: DateComponents?
     var timezone: String?
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.tableFooterView = UIView()
+        tableView.addSubview(refreshControl)
         
         tableView.register(UINib(nibName: "HeaderTableViewCell", bundle: nil), forCellReuseIdentifier: "Header")
         tableView.register(UINib(nibName: "ForecastTextTableViewCell", bundle: nil), forCellReuseIdentifier: "HourlyForecastText")
@@ -40,6 +42,14 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         if aCity?.forecast == nil {
             print("empty")
         }
+        
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+
+    }
+    
+    @objc func refreshData(_ sender: Any) {
+        self.getData()
+        self.refreshControl.endRefreshing()
     }
     
     func getData() {
