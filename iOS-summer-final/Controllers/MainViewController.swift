@@ -131,6 +131,7 @@ class MainViewController: UIViewController, MKMapViewDelegate, UITableViewDataSo
             if let name = city.title {
                 if let cityName = name {
                     myCity = City(name: cityName, coordinates: city.coordinate)
+                    mapView.deselectAnnotation(city, animated: false)
                     performSegue(withIdentifier: "toDetails", sender: self)
                 }
             }
