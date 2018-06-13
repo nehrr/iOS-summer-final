@@ -17,3 +17,6 @@ What's the weather today ?
   - A **rainbow** spinner when loading data.
   - **Error** messages when there is no access to roaming or localization access is forbidden.
   - Cute **icons** and **launch screen**!
+
+
+![Solid](https://media.giphy.com/media/kWqTfdz5RJBRe/giphy.gif)
